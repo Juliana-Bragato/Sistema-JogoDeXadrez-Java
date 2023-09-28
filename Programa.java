@@ -1,9 +1,9 @@
-import tabuleiro.Board;
+import tabuleiro.Tabuleiro;
 
 public class Programa {
 
     public static void main(String[] args) {
 
-        Board tabuleiro = new Board(8, 8);
+        Tabuleiro tabuleiro = new Tabuleiro(8, 8);
     }
 }

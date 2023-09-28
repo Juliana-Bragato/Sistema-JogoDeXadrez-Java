@@ -1,15 +1,15 @@
 package tabuleiro;
 
-public class Board {
+public class Tabuleiro {
 
     private int linhas;
     private int colunas;
-    private Piece[][] pecas;
+    private Pecas[][] pecas;
 
-    public Board(int linhas, int colunas) {
+    public Tabuleiro(int linhas, int colunas) {
         this.linhas = linhas;
         this.colunas = colunas;
-        pecas = new Piece[linhas][colunas];
+        pecas = new Pecas[linhas][colunas];
     }
 
     public int getLinhas() {
