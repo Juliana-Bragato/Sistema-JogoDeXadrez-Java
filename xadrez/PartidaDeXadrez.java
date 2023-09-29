@@ -25,22 +25,27 @@ public class PartidaDeXadrez {
         return mat;
     }
 
-    public PecaDeXadrez performaceDeMovimento(XadrezPosicao posicaoDeOrigem, XadrezPosicao posicaoDeDestino){
+    public PecaDeXadrez performaceDeMovimento(XadrezPosicao posicaoDeOrigem, XadrezPosicao posicaoDeDestino) {
         Posicao origem = posicaoDeOrigem.toPosicao();
         Posicao destino = posicaoDeDestino.toPosicao();
         validadePosicaoDeOrigem(origem);
-        Pecas capituraDePeca = FazerMover (origem, destino);
-        return (PecaDeXadrez)capituraDePeca;
+        Pecas capituraDePeca = FazerMover(origem, destino);
+        return (PecaDeXadrez) capituraDePeca;
     }
-    private Pecas FazerMover(Posicao origem, Posicao destino){
+
+    private Pecas FazerMover(Posicao origem, Posicao destino) {
         Pecas p = tabuleiro.removePecas(origem);
         Pecas pecaCapturada = tabuleiro.removePecas(destino);
         tabuleiro.colocarPecas(p, destino);
         return pecaCapturada;
     }
-    private void validadePosicaoDeOrigem(Posicao posicao){
+
+    private void validadePosicaoDeOrigem(Posicao posicao) {
         if (!tabuleiro.temPecas(posicao)) {
             throw new ExcecaoDeXadrez("Não existe peça na posição de origem");
+        }
+        if (!tabuleiro.pecas(posicao).umMovimentoPossivel()) {
+            throw new ExcecaoDeXadrez("Não existe movimentos possíveis para a peça escolhida.");
         }
     }
 
