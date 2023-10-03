@@ -7,6 +7,7 @@ import tabuleiro.Tabuleiro;
 public abstract class PecaDeXadrez extends Pecas {
 
     private Cor cor;
+    private int contagemMovimento;
 
     public PecaDeXadrez(Tabuleiro tabuleiro, Cor cor) {
         super(tabuleiro);
@@ -17,12 +18,24 @@ public abstract class PecaDeXadrez extends Pecas {
         return cor;
     }
 
-    public XadrezPosicao getXadrezPosicao(){
+    public int getContagemMovimento() {
+        return contagemMovimento;
+    }
+
+    public void acrescentarContagemMovimento() {
+        contagemMovimento++;
+    }
+
+    public void retirarContagemMovimento() {
+        contagemMovimento--;
+    }
+
+    public XadrezPosicao getXadrezPosicao() {
         return XadrezPosicao.Aposicao(posicao);
     }
 
-    protected boolean existePecaInimiga(Posicao posicao){
-        PecaDeXadrez p =(PecaDeXadrez)getTabuleiro().pecas(posicao);
+    protected boolean existePecaInimiga(Posicao posicao) {
+        PecaDeXadrez p = (PecaDeXadrez) getTabuleiro().pecas(posicao);
         return p != null && p.getCor() != cor;
     }
 
