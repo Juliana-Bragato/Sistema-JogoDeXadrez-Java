@@ -36,7 +36,7 @@ public class Programa {
                     capturada.add(pecaCapturada);
                 }
 
-            } catch (ExcecaoDeXadrez e) {
+             } catch (ExcecaoDeXadrez e) {
                 System.out.println(e.getMessage());
                 sc.nextLine();
             } catch (InputMismatchException e) {
