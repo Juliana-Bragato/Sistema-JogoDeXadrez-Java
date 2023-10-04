@@ -36,6 +36,12 @@ public class Programa {
                     capturada.add(pecaCapturada);
                 }
 
+                if (partidaDeXadrez.getPromover() != null) {
+                    System.out.println(" Entre com a Peça a ser promovida (B/C/T/Q): ");
+                    String type = sc.nextLine();
+                    partidaDeXadrez.substituirPecaPromovida(type);
+                }
+
             } catch (ExcecaoDeXadrez e) {
                 System.out.println(e.getMessage());
                 sc.nextLine();
